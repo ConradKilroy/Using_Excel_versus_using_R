@@ -1,4 +1,5 @@
 #Python lambda functions are fugly
+#Saw it originally here; https://www.linkedin.com/posts/towards-data-science_what-are-lambda-functions-in-python-and-why-activity-6656352149007663104-qEy5
 
 #source: https://towardsdatascience.com/what-are-lambda-functions-in-python-and-why-you-should-start-using-them-right-now-75ab85655dc6
 from sklearn import datasets
