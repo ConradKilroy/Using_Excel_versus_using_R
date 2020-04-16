@@ -1,0 +1,33 @@
+#Python lambda functions are fugly
+
+#source: https://towardsdatascience.com/what-are-lambda-functions-in-python-and-why-you-should-start-using-them-right-now-75ab85655dc6
+from sklearn import datasets
+import pandas as pd
+
+iris_data = datasets.load_iris()
+df_iris = pd.DataFrame(iris_data.data,columns=iris_data.feature_names)
+df_iris['target'] = pd.Series(iris_data.target)
+df_iris.head()
+
+#new col, referring to 1 col
+df_iris['sepal_length_description'] = df_iris['sepal length (cm)'].apply(lambda x: 'sepal length is: ' + str(x))
+df_iris.head()
+
+#new col, referring to the entire df
+df_iris['sepal_description'] = df_iris.apply(lambda x: 'sepal length/width ration is :' + str(round(x['sepal length (cm)'] / x['sepal width (cm)'], 2)), axis=1)
+df_iris.head()
+
+#--------------------------------------------------------------------------------------------------
+
+#compared to R
+data(iris)
+head(iris)
+
+iris$'Sepal Length Description' <- paste0('sepal length is: ', iris$Sepal.Length)
+head(iris)
+
+iris$'sepal_description' = paste0('sepal length/width ration is :' ,
+                                  round(iris$Sepal.Length / iris$Sepal.Width, 2))
+head(iris)
+
+
